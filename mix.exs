@@ -1,8 +1,8 @@
-defmodule NervesSystemRpi4.MixProject do
+defmodule CustomRpi4.MixProject do
   use Mix.Project
 
-  @github_organization "nerves-project"
-  @app :nerves_system_rpi4
+  @github_organization "basvanwesting"
+  @app :custom_rpi4
   @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
@@ -44,6 +44,7 @@ defmodule NervesSystemRpi4.MixProject do
       artifact_sites: [
         {:github_releases, "#{@github_organization}/#{@app}"}
       ],
+      build_runner: Nerves.Artifact.BuildRunners.Docker,
       build_runner_opts: build_runner_opts(),
       platform: Nerves.System.BR,
       platform_config: [
